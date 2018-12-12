@@ -1,0 +1,25 @@
+<!-- http://docs.django-cms.org/en/latest/topics/menu_system.html -->
+{% load menu_tags %}
+<div class="w3-bar w3-light-grey w3-border">
+    {% for child in children %}
+        <div class="w3-bar-item w3-button w3-border">
+            <a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+        </div>
+    {% endfor %}
+</div>
+<div class="w3-container w3-white">
+    <br>
+</div>
+<div class="w3-bar  w3-light-grey w3-border">
+    {% for child in children %}
+        {% if child.selected or child.ancestor %}
+            {% for subchild in child.children %}
+                <div class="w3-bar-item w3-button w3-border">
+                    <a href="{{ subchild.get_absolute_url }}">{{ subchild.get_menu_title }}</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% endfor %}
+</div>
+<!-- example see https://github.com/divio/django-cms/blob/develop/menus/templates/menu/menu.html  sibling, descendant-->

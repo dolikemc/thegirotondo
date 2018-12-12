@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+
+    <div class="w3-container w3-light-grey">
+        <div class="w3-container w3-white w3-margin">
+            <header class="w3-center w3-panel">
+                {% static_placeholder "header" %}
+            </header>
+            <div class="w3-bar w3-left w3-light-grey w3-text-blue">
+                {% show_menu 0 100 100 100 "menu.html" %}
+            </div>
+
+            <div class="w3-panel">
+                {% placeholder content %}
+            </div>
+            <footer>
+                {% static_placeholder "footer" %}
+            </footer>
+        </div>
+    </div>
+{% endblock content %}
+{% block additional_css %}
+{% endblock additional_css %}
+{% block additional_js %}
+    <script type="text/javascript" src="{% static 'js/apps.js' %}"></script>
+{% endblock additional_js %}

@@ -1,0 +1,11 @@
+{% load cms_tags %}
+
+<button class="w3-button w3-block w3-left-align"
+        onclick="accordionClick('#accordion-{{ accordion.pk }}-{{ parentloop.counter }}')">
+    <i class="fa fa-angle-double-right w3-text-blue w3-right"></i>
+    {{ instance.title }}
+</button>
+<div class="w3-hide"
+     id="#accordion-{{ accordion.pk }}-{{ parentloop.counter }}">
+    {% for plugin in instance.child_plugin_instances %}{% render_plugin plugin %}{% endfor %}
+</div>

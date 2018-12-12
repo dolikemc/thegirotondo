@@ -1,0 +1,63 @@
+{% load cms_tags menu_tags sekizai_tags %}
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}Girotondo{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Theme CSS -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+
+        .nav {
+            padding-left: 0;
+        }
+
+        .nav li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+        }
+
+        .container {
+            width: 940px;
+            margin: 0 auto
+        }
+
+        .content {
+            float: left;
+            width: 80%;
+        }
+
+        .sidebar {
+            float: left;
+            width: 20%;
+        }
+    </style>
+    {% render_block "css" %}
+</head>
+<body>
+{% cms_toolbar %}
+<div class="container">
+    {% block content %}{% endblock content %}
+</div>
+{% render_block "js" %}
+</body>
+</html>
