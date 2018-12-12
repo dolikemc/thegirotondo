@@ -1,0 +1,21 @@
+{% include 'base.html' %}
+{% block content %}
+    <h1>All registrations</h1>
+    <div class="w3-amber w3-container">
+        <table class="w3-table-all">
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            {% for item in form %}
+                <tr>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.child_pre_name }} {{ item.child_name }}</td>
+                    <td>{{ item.age }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}

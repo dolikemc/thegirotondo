@@ -15,3 +15,4 @@ class CreateRegistration(generic.CreateView):
 class RegistrationList(generic.ListView):
     model = Registration
     queryset = Registration.objects.all()
+    context_object_name = 'form'
