@@ -1,2 +1,2 @@
-# girotondo2
+# girotondo
 New setup of the homepage of my sons kindergarten
