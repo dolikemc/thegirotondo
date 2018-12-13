@@ -4,15 +4,21 @@
     <div class="w3-amber w3-container">
         <table class="w3-table-all">
             <tr>
+                <th>Id</th>
                 <th>Email</th>
                 <th>Name</th>
                 <th>Age</th>
+                <th>Start</th>
+                <th>Created</th>
             </tr>
             {% for item in form %}
                 <tr>
+                    <td>{{ item.id }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.child_pre_name }} {{ item.child_name }}</td>
                     <td>{{ item.age }}</td>
+                    <td>{{ item.start }}</td>
+                    <td>{{ item.published }}</td>
                 </tr>
             {% endfor %}
         </table>

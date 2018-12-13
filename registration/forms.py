@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import reverse
 from django.views import generic
 
@@ -14,5 +16,5 @@ class CreateRegistration(generic.CreateView):
 
 class RegistrationList(generic.ListView):
     model = Registration
-    queryset = Registration.objects.all()
+    queryset = Registration.objects.filter(birth_date__gt=datetime(2012, 1, 1)).order_by('-published')
     context_object_name = 'form'

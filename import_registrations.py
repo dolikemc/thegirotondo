@@ -48,7 +48,7 @@ def time_converter(text: str):
     if match:
         return (datetime.time(hour=13, minute=0), datetime.time(hour=17, minute=30))
 
-    raise ValueError('not found: %s'.format(text))
+    raise ValueError('not found: %s' % (text))
 
 
 def date_converter(text: str) -> datetime.date:
@@ -82,7 +82,7 @@ def date_converter(text: str) -> datetime.date:
                 return found_date
             except ValueError:
                 pass  # next try
-    raise ValueError("can't find a date format for %s".format(text))
+    raise ValueError("can't find a date format for %s" % (text))
 
 
 def insert_into_db(db: sqlite3.Connection, row) -> bool:
@@ -159,8 +159,8 @@ with open('registrations.csv', newline='') as csv_file:
             start_date = date_converter(row[column_header['start']])
             created_date = date_converter(row[column_header['created']])
             (start_time, end_time) = time_converter(row[column_header['time']])
-            print("%d %s %s %s %s %s".format(row[column_header['id']], created_date, start_date, birth_day, start_time,
-                                             end_time))
+            print("%s %s %s %s %s %s" % (row[column_header['id']], created_date, start_date, birth_day, start_time,
+                                         end_time))
 
             Registration.objects.create(
                 start=start_date,
@@ -201,10 +201,10 @@ with open('registrations.csv', newline='') as csv_file:
             )
 
         except ValueError as exc:
-            print("%d %s".format(row[column_header['id']], exc))
+            print("%d %s" % (row[column_header['id']], exc))
             not_catched += 1
         except OverflowError as exc:
-            print("%d %s".format(row[column_header['id']], exc))
+            print("%d %s" % (row[column_header['id']], exc))
             not_catched += 1
 
 print(not_catched)
