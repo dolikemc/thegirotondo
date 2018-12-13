@@ -3,16 +3,16 @@ from cms.apphook_pool import apphook_pool
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 
-from registration.forms import CreateRegistration, RegistrationList
+from schedule.forms import CreateOutTime, ShowCalendar
 
 
 @apphook_pool.register  # register the application
-class RegistrationApphook(CMSApp):
-    app_name = "registration"
-    name = _("Registration Application")
+class CalendarApphook(CMSApp):
+    app_name = "calendar"
+    name = _("Calendar Application")
 
     def get_urls(self, page=None, language=None, **kwargs):
         return [
-            url(r'^list/$', RegistrationList.as_view()),
-            url(r'^$', CreateRegistration.as_view()),
+            url(r'^add/$', CreateOutTime.as_view()),
+            url(r'^$', ShowCalendar.as_view()),
         ]

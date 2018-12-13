@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'girotondo',
     'accordion',
     'registration',
+    'schedule',
 )
 
 LANGUAGES = (

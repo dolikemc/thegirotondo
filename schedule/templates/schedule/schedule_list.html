@@ -1,0 +1,36 @@
+{% include 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="w3-container">
+        <table class="w3-table">
+            <tr>
+                <th>M</th>
+                <th>D</th>
+                <th>M</th>
+                <th>D</th>
+                <th>F</th>
+                <th>S</th>
+                <th>S</th>
+            </tr>
+            {% for day in form %}
+                {% if day.is_monday %}
+                    <tr>
+                {% endif %}
+            <td>
+                <a href="/contact/calendar/add/">
+                    {% if day.is_closed or day.is_weekend %}
+                        <div class="w3-amber">{{ day.date.day }} / {{ day.date.month }}</div>
+                    {% elif user in day.exists_out %}
+                        <div class="w3-red">{{ day.date.day }} / {{ day.date.month }}</div>
+                    {% else %}
+                        <div class="w3-green">{{ day.date.day }} / {{ day.date.month }}</div>
+                    {% endif %}
+                </a>
+            </td>
+            {% if day.is_sunday %}
+                </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
