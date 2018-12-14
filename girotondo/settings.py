@@ -28,7 +28,7 @@ SECRET_KEY = 'f$ty-$$i(ivbfla+29m$xj3g(agp%ejz6cgt=f)hubznvb3&&o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['girotondo.pythonanywhere.com', 'localhost']
 
 # Application definition
 
