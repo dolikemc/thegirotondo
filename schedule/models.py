@@ -41,7 +41,7 @@ class Consideration(models.Model):
 
     @property
     def date(self):
-        return date.today() + timedelta(days=self.day - 20)
+        return date.today() + timedelta(days=self.day - 14)
 
     @property
     def exists_out(self):
@@ -52,7 +52,7 @@ class Consideration(models.Model):
 
     @staticmethod
     def get_first_monday():
-        return (date.today() + timedelta(days=- 20 - 1)).weekday()
+        return 7 - (date.today() + timedelta(days=- 14)).weekday()
 
     @property
     def is_closed(self):

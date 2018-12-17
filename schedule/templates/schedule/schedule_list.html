@@ -1,6 +1,7 @@
 {% include 'base.html' %}
 {% load static %}
 {% block content %}
+    <h1>Ciao {{ user.first_name }}!</h1>
     <div class="w3-container">
         <table class="w3-table">
             <tr>
@@ -17,7 +18,7 @@
                     <tr>
                 {% endif %}
             <td>
-                <a href="/contact/calendar/add/">
+                <a href="/contact/calendar/change/{{ day.date.year }}/{{ day.date.month }}/{{ day.date.day }}/7/">
                     {% if day.is_closed or day.is_weekend %}
                         <div class="w3-amber">{{ day.date.day }} / {{ day.date.month }}</div>
                     {% elif user in day.exists_out %}
