@@ -12,7 +12,7 @@ def change_out_time(request: HttpRequest, year: str, month: str, day: str, hour:
     entry_date = date(year=int(year), month=int(month), day=int(day))
     entry = Calendar.objects.filter(user_id=request.user.id, calendar_day=entry_date).first()
 
-    if request.user.is_superuser and entry_date.weekday() < 5:
+    if request.user.is_superuser:
         if entry is None:
             Calendar.objects.create(user_id=request.user.id, calendar_day=entry_date, is_closed=True,
                                     out_from=time(int(hour), minute=0, second=0))
@@ -36,5 +36,3 @@ def change_out_time(request: HttpRequest, year: str, month: str, day: str, hour:
         entry.out = True
         entry.save()
     return redirect(to='calendar:show-calendar')
-
-# Create your views here.

@@ -28,32 +28,32 @@ class Consideration(models.Model):
         return str(self.day)
 
     @property
-    def is_monday(self):
+    def is_monday(self) -> bool:
         return self.date.weekday() == 0
 
     @property
-    def is_sunday(self):
+    def is_sunday(self) -> bool:
         return self.date.weekday() == 6
 
     @property
-    def is_weekend(self):
+    def is_weekend(self) -> bool:
         return self.date.weekday() >= 5
 
     @property
-    def date(self):
+    def date(self) -> date:
         return date.today() + timedelta(days=self.day - 14)
 
     @property
-    def exists_out(self):
+    def exists_out(self):  # -> List[User]
         user = []
         for cal in Calendar.objects.filter(calendar_day__exact=self.date, out=True):
             user.append(cal.user)
         return user
 
     @staticmethod
-    def get_first_monday():
+    def get_first_monday() -> int:
         return 7 - (date.today() + timedelta(days=- 14)).weekday()
 
     @property
-    def is_closed(self):
+    def is_closed(self) -> bool:
         return Calendar.objects.filter(calendar_day__exact=self.date, is_closed=True).exists()
