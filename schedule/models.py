@@ -14,7 +14,7 @@ class Calendar(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     updated = models.DateTimeField(auto_now=True, editable=False)
 
-    def str(self):
+    def __str__(self):
         return "%s %s %d-%d %d:%d" % (
             self.user.first_name, self.user.last_name, self.calendar_day.month, self.calendar_day.day,
             self.out_from.hour,

@@ -60,6 +60,3 @@ Lage der Arbeitszeit bzw. Unterrichtszeit die Betreuung erforderlich machen"""),
 
     def __str__(self):
         return "%d %s %s: %s" % (self.id, self.child_pre_name, self.child_name, self.email)
-
-    def __unicode__(self):
-        return "%s %s: %s" % (self.child_pre_name, self.child_name, self.email)

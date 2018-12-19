@@ -4,6 +4,7 @@ from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 
 from registration.forms import CreateRegistration, RegistrationList
+from registration.urls import urlpatterns
 
 
 @apphook_pool.register  # register the application
@@ -12,7 +13,4 @@ class RegistrationApphook(CMSApp):
     name = _("Registration Application")
 
     def get_urls(self, page=None, language=None, **kwargs):
-        return [
-            url(r'^list/$', RegistrationList.as_view()),
-            url(r'^$', CreateRegistration.as_view()),
-        ]
+        return urlpatterns

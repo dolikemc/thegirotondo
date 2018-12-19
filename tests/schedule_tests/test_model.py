@@ -11,9 +11,14 @@ class TestCalendar(TestBase):
         for i in range(1, 51):
             Consideration.objects.create(day=i)
 
-    def test_str(self):
+    def test_consideration_str(self):
         consideration = Consideration.objects.get(id=1)
         self.assertEqual('1', str(consideration))
+
+    def test_calendar_str(self):
+        Calendar.objects.create(user_id=self.admin.id, calendar_day=date(2018, 12, 17), out=True)
+        calendar = Calendar.objects.first()
+        self.assertEqual('  12-17 7:0', str(calendar))
 
     @mock.patch('schedule.models.date')
     def test_is_monday(self, mock_date):
