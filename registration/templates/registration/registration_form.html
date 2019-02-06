@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="w3-amber w3-container">
+    <div class="w3-container">
         <form method="post">
             <div class="w3-bar">
                 <button onclick="goBack()" class="w3-button w3-bar-item" id="id_create_detail_go_back"><i
@@ -15,8 +15,6 @@
             {% csrf_token %}
             {% for field in form %}
                 {% if field.name == 'place' %}
-                    <!--{{ field.value }} - {{ field.name }} - {{ field.label }}-->
-                {% else %}
                     {% cycle '<div class="w3-row-padding">' '' %}
                     <div class="w3-half ">
                         {{ field.errors }}
