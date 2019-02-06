@@ -2,7 +2,7 @@
 {% block content %}
     <div class="w3-container">
         <form method="post">
-            <div class="w3-bar">
+            <div class="w3-bar w3">
                 <button onclick="goBack()" class="w3-button w3-bar-item" id="id_create_detail_go_back"><i
                         class="fa fa-backward w3-large"></i>
                 </button>
@@ -14,15 +14,13 @@
             </div>
             {% csrf_token %}
             {% for field in form %}
-                {% if field.name == 'place' %}
-                    {% cycle '<div class="w3-row-padding">' '' %}
-                    <div class="w3-half ">
-                        {{ field.errors }}
-                        {{ field.label_tag }}<br>
-                        {{ field }}
-                    </div>
-                    {% cycle '' '</div>' %}
-                {% endif %}
+                {% cycle '<div class="w3-row-padding">' '' %}
+                <div class="w3-half ">
+                    {{ field.errors }}
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                </div>
+                {% cycle '' '</div>' %}
             {% endfor %}
 
         </form>

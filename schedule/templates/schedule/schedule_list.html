@@ -20,11 +20,11 @@
             <td>
                 <a href="/contact/calendar/change/{{ day.date.year }}/{{ day.date.month }}/{{ day.date.day }}/7/">
                     {% if day.is_closed or day.is_weekend %}
-                        <div class="w3-amber">{{ day.date.day }} / {{ day.date.month }}</div>
+                        <div class="w3-khaki">{{ day.date.day }} / {{ day.date.month }}</div>
                     {% elif user in day.exists_out %}
-                        <div class="w3-red">{{ day.date.day }} / {{ day.date.month }}</div>
+                        <div class="w3-pale-red">{{ day.date.day }} / {{ day.date.month }}</div>
                     {% else %}
-                        <div class="w3-green">{{ day.date.day }} / {{ day.date.month }}</div>
+                        <div class="w3-pale-green">{{ day.date.day }} / {{ day.date.month }}</div>
                     {% endif %}
                 </a>
             </td>

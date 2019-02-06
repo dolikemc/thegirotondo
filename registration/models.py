@@ -6,12 +6,13 @@ from django.urls import reverse
 """Kinder, deren Mutter oder Vater alleinerziehend und berufstätig oder 
 in Ausbildung ist, sowie Kinder deren beide Elternteile berufstätig oder in Ausbildung sind, soweit Umfang und
 Lage der Arbeitszeit bzw. Unterrichtszeit die Betreuung erforderlich machen"""
+"""Familien, die gemäß §27 i.V.m.§36 SGB VIII der „Hilfe zur Erziehung“ bedürfen"""
 
 
 # Create your models here.
 class Registration(models.Model):
     SEX = (('M', 'male'), ('F', 'female'))
-    URGENCY = (('A', """Familien, die gemäß §27 i.V.m.§36 SGB VIII der „Hilfe zur Erziehung“ bedürfen"""),
+    URGENCY = (('A', '§27 i.V.m. §36'),
                ('B', 'Alleinerziehend'),
                ('S', "Soziale Härtefälle"))
     start = models.DateField(verbose_name='Gewünschter Eintrittstermin')
