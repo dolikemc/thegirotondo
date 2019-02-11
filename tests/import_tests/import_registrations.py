@@ -1,5 +1,7 @@
 """
 Import data from contao
+shell
+exec(open('import_registrations.py').read())
 """
 import csv
 import datetime
